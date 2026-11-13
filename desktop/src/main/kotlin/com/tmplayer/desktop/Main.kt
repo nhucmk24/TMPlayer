@@ -159,9 +159,10 @@ fun main(args: Array<String>) {
         Background.scope.launch { runCatching { DesktopStorage.relocation.resumePending() } }
         // The UI language: the Settings choice, else the system's, else English. The en-XA
         // pseudo-locale is for development runs only (-Dtmplayer.pseudo=true).
+        // Ép ứng dụng chỉ sử dụng duy nhất tiếng Việt
         Translator.pseudoEnabled = System.getProperty("tmplayer.pseudo") == "true"
         Background.scope.launch {
-            settings.language.collect { saved -> Translator.select(saved, listOf(Locale.getDefault().toLanguageTag())) }
+            settings.language.collect { _ -> Translator.select("vi", listOf("vi")) }
         }
         // Lighter pictures and Reduce motion (CP68) have no rows on a computer, but a backup made
         // on a phone can carry them, and they mean the same here.

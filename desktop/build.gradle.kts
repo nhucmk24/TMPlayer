@@ -466,7 +466,7 @@ compose.desktop {
         }
         nativeDistributions {
             targetFormats(TargetFormat.Deb, TargetFormat.Rpm, TargetFormat.Msi, TargetFormat.Exe)
-            packageName = "TMPlayer"
+            packageName = "Clowphim"
             // jpackage wants a plain x.y.z. The deb and rpm (not published) take the release's own;
             // the MSI and macOS's CFBundleVersion take the installer version, below.
             packageVersion = desktopVersion.removePrefix("v").substringBefore('-').substringBefore('+')
@@ -482,11 +482,11 @@ compose.desktop {
             // still arrives on its own because jdk.security.auth requires it.
             modules("jdk.unsupported", "jdk.security.auth", "jdk.net")
             linux {
-                packageName = "tmplayer"
-                iconFile.set(packagingDir.file("icons/tmplayer.png"))
+                packageName = "clowphim"
+                iconFile.set(packagingDir.file("icons/clowphim.png"))
                 menuGroup = "AudioVideo;Video;Player;"
                 appCategory = "video"
-                debMaintainer = "TMPlayer <noreply@github.com>"
+                debMaintainer = "Clowphim <noreply@github.com>"
                 rpmLicenseType = "GPLv3+"
                 shortcut = true
             }
@@ -518,7 +518,7 @@ compose.desktop {
                 }
             }
             windows {
-                iconFile.set(packagingDir.file("icons/tmplayer.ico"))
+                iconFile.set(packagingDir.file("icons/clowphim.ico"))
                 // Start menu folder, desktop shortcut, installed under %LOCALAPPDATA% without an
                 // administrator prompt. The upgrade code never changes: it is what lets a newer
                 // MSI replace an older one instead of installing beside it.
