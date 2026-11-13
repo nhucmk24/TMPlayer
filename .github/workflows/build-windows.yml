@@ -19,6 +19,12 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
 
+    - name: Create local.properties
+      shell: bash
+      run: |
+        echo "TG_API_ID=${{ secrets.TG_API_ID }}" > local.properties
+        echo "TG_API_HASH=${{ secrets.TG_API_HASH }}" >> local.properties
+
     - name: Build Windows MSI installer
       run: ./gradlew :desktop:packageReleaseMsi
 
