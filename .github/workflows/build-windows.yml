@@ -19,11 +19,13 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
 
-    - name: Build Windows App and Installers
-      run: ./gradlew :desktop:packageReleaseDeb :desktop:packageReleaseMsi :desktop:createReleaseDistributable
+    - name: Build Windows MSI installer
+      run: ./gradlew :desktop:packageReleaseMsi
 
-    - name: Upload all desktop binaries
+    - name: Upload MSI artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Clowphim-Windows-Files
-        path: desktop/build/compose/binaries/main/
+        name: Clowphim-Windows-MSI
+        path: |
+          desktop/build/compose/binaries/**/*.msi
+          desktop/build/compose/binaries/**/*.exe
